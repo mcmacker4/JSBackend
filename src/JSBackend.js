@@ -12,8 +12,6 @@ const server = http.createServer((req, res) => {
     if(fs.fstatSync(fs.openSync(filePath, 'r+')).isDirectory())
         filePath += (filePath.endsWith("/") ? "" : "/") + "index.html";
 
-    console.log(filePath);
-
     fs.readFile(filePath, "utf8", (err, data) => {
 
         if(err && err.errno == -4058) {
